@@ -14,7 +14,10 @@ function SearchForm(){
         if (searchParameter == "random"){
             fetch(`${url}/random`)
             .then(response=>response.json())
-            .then(data=>console.log(data))
+            .then((data)=>{
+                const bar_data = data[0]
+                console.log(bar_data)
+            })
             .catch(error=>console.log(error))
         }
         else{
