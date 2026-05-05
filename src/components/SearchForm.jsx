@@ -6,10 +6,21 @@ function SearchForm(){
     const [numberOfReturns, setNumberOfReturns] = useState(1)
     const [searchInput, setSearchInput] = useState("")
 
+    const url = "https://api.openbrewerydb.org/v1/breweries"
+    //search by_city example: https://api.openbrewerydb.org/v1/breweries?by_city=san_diego&per_page=3
+
     function handleSearch(e){
         e.preventDefault()
-        console.log("Searching for bars...")
-        console.log(`Searching for ${numberOfReturns} bars by ${searchParameter}.`)
+        if (searchParameter == "random"){
+            fetch(`${url}/random`)
+            .then(response=>response.json())
+            .then(data=>console.log(data))
+            .catch(error=>console.log(error))
+        }
+        else{
+            console.log("searning for something else")
+        }
+        //console.log(`Searching for ${numberOfReturns} bars by ${searchParameter}.`)
     }
 
     return(
