@@ -20,8 +20,17 @@ function SearchForm(){
             })
             .catch(error=>console.log(error))
         }
+        else if (searchParameter == "name"){
+            
+        }
         else{
-            console.log("searning for something else")
+            fetch(`${url}?${searchParameter}=${searchInput}&per_page=${numberOfReturns}`)
+            .then(response=>response.json())
+            .then((data)=>{
+                const bar_data = data
+                console.log(bar_data)
+            })
+            .catch(error=>console.log(error))
         }
         //console.log(`Searching for ${numberOfReturns} bars by ${searchParameter}.`)
     }
@@ -33,8 +42,8 @@ function SearchForm(){
                 <label htmlFor="searchparameter">Search Parameter</label>
                 <select id="searchparameter" value={searchParameter} onChange={(e)=>setSearchParameter(e.target.value)}>
                     <option value="">--Select One--</option>
-                    <option value="city">By City</option>
-                    <option value="state">By State</option>
+                    <option value="by_city">By City</option>
+                    <option value="by_state">By State</option>
                     <option value="name">By Name</option>
                     <option value="random">Random</option>
                 </select>
