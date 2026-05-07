@@ -17,7 +17,7 @@ function SearchForm({setBarData}){
             .catch(error=>console.log(error))
         }
         else if (searchParameter == "by_city"){
-            fetch(`${url}/random?size=50&city=${searchInput}`)
+            fetch(`${url}?by_city=${searchInput}`)
             .then(response=>response.json())
             .then(data=>setBarData(data))
             .catch(error=>console.log(error))
