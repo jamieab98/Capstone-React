@@ -11,7 +11,7 @@ function SearchForm({setBarData}){
     function handleSearch(e){
         e.preventDefault()
         if (searchParameter == "random"){
-            fetch(`${url}/random`)
+            fetch(`${url}/random?size=${numberOfReturns}`)
             .then(response=>response.json())
             .then((data)=>{
                 setBarData(data)

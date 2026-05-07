@@ -1,14 +1,20 @@
 function BarDisplay({barData}){
-    
-    function onTest(){
-        console.log(barData)
-    }
 
     return(
         <>
             <h2>Bar Display Component</h2>
-            
-            <button onClick={onTest}>Click</button>
+            {barData.map((bar)=>(
+                <div key={bar.id}>
+                    <div>{bar.name}</div>
+                    <div>{bar.address_1}</div>
+                    <div>{bar.city}, {bar.state}</div>
+                    <div>{bar.country}</div>
+                    <div>Contact Information:</div>
+                    <a href={bar.website_url}>{bar.website_url}</a>
+                    <div>{bar.phone}</div>
+                    <br/>
+                </div>
+            ))}
         </>
     )
 }
