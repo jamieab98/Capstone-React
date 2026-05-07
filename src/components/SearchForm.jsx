@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function SearchForm(){
+function SearchForm({setBarData}){
 
     const [searchParameter, setSearchParameter] = useState("")
     const [numberOfReturns, setNumberOfReturns] = useState(1)
@@ -14,8 +14,9 @@ function SearchForm(){
             fetch(`${url}/random`)
             .then(response=>response.json())
             .then((data)=>{
-                const bar_data = data[0]
-                console.log(bar_data)
+                setBarData(data)
+                //const bar_data = data[0]
+                //console.log(bar_data)
             })
             .catch(error=>console.log(error))
         }
@@ -23,8 +24,9 @@ function SearchForm(){
             fetch(`${url}?${searchParameter}=${searchInput}`)
             .then(response=>response.json())
             .then((data)=>{
-                const bar_data = data
-                console.log(bar_data)
+                setBarData(data)
+                //const bar_data = data
+                //console.log(bar_data)
             })
             .catch(error=>console.log(error))
         }
@@ -32,8 +34,9 @@ function SearchForm(){
             fetch(`${url}?${searchParameter}=${searchInput}&per_page=${numberOfReturns}`)
             .then(response=>response.json())
             .then((data)=>{
-                const bar_data = data
-                console.log(bar_data)
+                setBarData(data)
+                //const bar_data = data
+                //console.log(bar_data)
             })
             .catch(error=>console.log(error))
         }
