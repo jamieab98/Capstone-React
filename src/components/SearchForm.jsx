@@ -7,7 +7,6 @@ function SearchForm(){
     const [searchInput, setSearchInput] = useState("")
 
     const url = "https://api.openbrewerydb.org/v1/breweries"
-    //search by_city example: https://api.openbrewerydb.org/v1/breweries?by_city=san_diego&per_page=3
 
     function handleSearch(e){
         e.preventDefault()
@@ -38,7 +37,6 @@ function SearchForm(){
             })
             .catch(error=>console.log(error))
         }
-        //console.log(`Searching for ${numberOfReturns} bars by ${searchParameter}.`)
     }
 
     return(
