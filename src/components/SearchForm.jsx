@@ -13,9 +13,7 @@ function SearchForm({setBarData}){
         if (searchParameter == "random"){
             fetch(`${url}/random?size=50`)
             .then(response=>response.json())
-            .then((data)=>{
-                setBarData(data)
-            })
+            .then(data=>setBarData(data))
             .catch(error=>console.log(error))
         }
         else if (searchParameter == "by_city"){
@@ -27,17 +25,13 @@ function SearchForm({setBarData}){
         else if (searchParameter == "by_name"){
             fetch(`${url}?${searchParameter}=${searchInput}`)
             .then(response=>response.json())
-            .then((data)=>{
-                setBarData(data)
-            })
+            .then(data=>setBarData(data))
             .catch(error=>console.log(error))
         }
         else{
             fetch(`${url}?${searchParameter}=${searchInput}&per_page=${perPage}`)
             .then(response=>response.json())
-            .then((data)=>{
-                setBarData(data)
-            })
+            .then(data=>setBarData(data))
             .catch(error=>console.log(error))
         }
     }
