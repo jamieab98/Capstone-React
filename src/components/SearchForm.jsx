@@ -46,7 +46,7 @@ function SearchForm({setBarData}){
         <>
             <h2>Search Form Component</h2>
             <form onSubmit={handleSearch}>
-                <label htmlFor="searchparameter">Search Parameter</label>
+                <label htmlFor="searchparameter">Search By:</label>
                 <select id="searchparameter" value={searchParameter} onChange={(e)=>setSearchParameter(e.target.value)}>
                     <option value="">--Select One--</option>
                     <option value="by_city">By City</option>
@@ -57,7 +57,7 @@ function SearchForm({setBarData}){
                 <label id="numberofbars">Number of Bars
                     <input type="number" id="numberofbars" value={numberOfReturns} onChange={(e)=>setNumberOfReturns(e.target.value)}/>
                 </label>
-                <label id="userinput">Search By: 
+                <label id="userinput">Search: 
                     <input type="text" id="userinput" value={searchInput} onChange={(e)=>setSearchInput(e.target.value)}/>
                 </label>
                 <button type="submit">Search</button>
