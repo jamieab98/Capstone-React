@@ -28,6 +28,12 @@ function SearchForm({setBarData}){
             .then(data=>setBarData(data))
             .catch(error=>console.log(error))
         }
+        else if (searchParameter == "by_state"){
+            fetch(`${url}?by_state=${searchInput}`)
+            .then(response=>response.json())
+            .then(data=>setBarData(data))
+            .catch(error=>console.log(error))
+        }
     }
 
     return(
