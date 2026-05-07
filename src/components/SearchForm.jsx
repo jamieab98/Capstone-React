@@ -20,8 +20,14 @@ function SearchForm(){
             })
             .catch(error=>console.log(error))
         }
-        else if (searchParameter == "name"){
-            
+        else if (searchParameter == "by_name"){
+            fetch(`${url}?${searchParameter}=${searchInput}`)
+            .then(response=>response.json())
+            .then((data)=>{
+                const bar_data = data
+                console.log(bar_data)
+            })
+            .catch(error=>console.log(error))
         }
         else{
             fetch(`${url}?${searchParameter}=${searchInput}&per_page=${numberOfReturns}`)
@@ -44,7 +50,7 @@ function SearchForm(){
                     <option value="">--Select One--</option>
                     <option value="by_city">By City</option>
                     <option value="by_state">By State</option>
-                    <option value="name">By Name</option>
+                    <option value="by_name">By Name</option>
                     <option value="random">Random</option>
                 </select>
                 <label id="numberofbars">Number of Bars
