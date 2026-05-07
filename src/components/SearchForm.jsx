@@ -3,7 +3,7 @@ import { useState } from "react"
 function SearchForm({setBarData}){
 
     const [searchParameter, setSearchParameter] = useState("")
-    const [numberOfReturns, setNumberOfReturns] = useState(1)
+    const [perPage, setPerPage] = useState(1)
     const [searchInput, setSearchInput] = useState("")
 
     const url = "https://api.openbrewerydb.org/v1/breweries"
@@ -11,7 +11,7 @@ function SearchForm({setBarData}){
     function handleSearch(e){
         e.preventDefault()
         if (searchParameter == "random"){
-            fetch(`${url}/random?size=${numberOfReturns}`)
+            fetch(`${url}/random?size=50`)
             .then(response=>response.json())
             .then((data)=>{
                 setBarData(data)
@@ -19,6 +19,9 @@ function SearchForm({setBarData}){
                 //console.log(bar_data)
             })
             .catch(error=>console.log(error))
+        }
+        else if (searchParameter == "by_city"){
+            fetch(`${url}`)
         }
         else if (searchParameter == "by_name"){
             fetch(`${url}?${searchParameter}=${searchInput}`)
@@ -54,11 +57,11 @@ function SearchForm({setBarData}){
                     <option value="by_name">By Name</option>
                     <option value="random">Random</option>
                 </select>
-                <label id="numberofbars">Number of Bars
-                    <input type="number" id="numberofbars" value={numberOfReturns} onChange={(e)=>setNumberOfReturns(e.target.value)}/>
-                </label>
                 <label id="userinput">Search: 
                     <input type="text" id="userinput" value={searchInput} onChange={(e)=>setSearchInput(e.target.value)}/>
+                </label>
+                <label id="perpage">Bars Per Page:
+                    <input type="number" id="perpage" value={perPage} onChange={(e)=>setPerPage(e.target.value)}/>
                 </label>
                 <button type="submit">Search</button>
             </form>
