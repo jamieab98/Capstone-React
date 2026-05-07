@@ -15,8 +15,6 @@ function SearchForm({setBarData}){
             .then(response=>response.json())
             .then((data)=>{
                 setBarData(data)
-                //const bar_data = data[0]
-                //console.log(bar_data)
             })
             .catch(error=>console.log(error))
         }
@@ -28,8 +26,6 @@ function SearchForm({setBarData}){
             .then(response=>response.json())
             .then((data)=>{
                 setBarData(data)
-                //const bar_data = data
-                //console.log(bar_data)
             })
             .catch(error=>console.log(error))
         }
@@ -38,8 +34,6 @@ function SearchForm({setBarData}){
             .then(response=>response.json())
             .then((data)=>{
                 setBarData(data)
-                //const bar_data = data
-                //console.log(bar_data)
             })
             .catch(error=>console.log(error))
         }
