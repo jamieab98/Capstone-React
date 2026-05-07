@@ -28,12 +28,6 @@ function SearchForm({setBarData}){
             .then(data=>setBarData(data))
             .catch(error=>console.log(error))
         }
-        else{
-            fetch(`${url}?${searchParameter}=${searchInput}&per_page=${perPage}`)
-            .then(response=>response.json())
-            .then(data=>setBarData(data))
-            .catch(error=>console.log(error))
-        }
     }
 
     return(
