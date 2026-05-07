@@ -19,7 +19,10 @@ function SearchForm({setBarData}){
             .catch(error=>console.log(error))
         }
         else if (searchParameter == "by_city"){
-            fetch(`${url}`)
+            fetch(`${url}/random?size=50&city=${searchInput}`)
+            .then(response=>response.json())
+            .then(data=>setBarData(data))
+            .catch(error=>console.log(error))
         }
         else if (searchParameter == "by_name"){
             fetch(`${url}?${searchParameter}=${searchInput}`)
@@ -30,7 +33,7 @@ function SearchForm({setBarData}){
             .catch(error=>console.log(error))
         }
         else{
-            fetch(`${url}?${searchParameter}=${searchInput}&per_page=${numberOfReturns}`)
+            fetch(`${url}?${searchParameter}=${searchInput}&per_page=${perPage}`)
             .then(response=>response.json())
             .then((data)=>{
                 setBarData(data)
