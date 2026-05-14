@@ -4,8 +4,10 @@ function SearchForm({setBarData}){
 
     const [searchParameter, setSearchParameter] = useState("")
     const [searchInput, setSearchInput] = useState("")
+    const [page, setPage] = useState(2)
 
     const url = "https://api.openbrewerydb.org/v1/breweries"
+    // api documentation: https://www.openbrewerydb.org/documentation//
 
     function handleSearch(e){
         e.preventDefault()
@@ -28,7 +30,7 @@ function SearchForm({setBarData}){
             .catch(error=>console.log(error))
         }
         else if (searchParameter == "by_state"){
-            fetch(`${url}?by_state=${searchInput}`)
+            fetch(`${url}?by_state=${searchInput}&page=${page}`)
             .then(response=>response.json())
             .then(data=>setBarData(data))
             .catch(error=>console.log(error))
