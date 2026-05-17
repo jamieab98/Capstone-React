@@ -1,4 +1,5 @@
 import { useState } from "react"
+import styles from "../styling/SearchForm.module.css"
 
 function SearchForm({setBarData}){
 
@@ -38,7 +39,7 @@ function SearchForm({setBarData}){
     }
 
     return(
-        <>
+        <div className={styles.form}>
             <h2>Search Form Component</h2>
             <form onSubmit={handleSearch}>
                 <label htmlFor="searchparameter">Search By:</label>
@@ -54,7 +55,7 @@ function SearchForm({setBarData}){
                 </label>
                 <button type="submit">Search</button>
             </form>
-        </>
+        </div>
     )
 }
 
