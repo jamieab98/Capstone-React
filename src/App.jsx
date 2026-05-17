@@ -8,7 +8,7 @@ function App(){
 
   return(
     <>
-      <h1>App Components</h1>
+      <h1>Bar Finder</h1>
       <SearchForm setBarData={setBarData}/>
       <BarDisplay barData={barData}/>
     </>

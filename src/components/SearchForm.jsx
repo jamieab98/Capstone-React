@@ -5,7 +5,7 @@ function SearchForm({setBarData}){
 
     const [searchParameter, setSearchParameter] = useState("")
     const [searchInput, setSearchInput] = useState("")
-    const [page, setPage] = useState(2)
+    const [page, setPage] = useState(1)
 
     const url = "https://api.openbrewerydb.org/v1/breweries"
     // api documentation: https://www.openbrewerydb.org/documentation//
